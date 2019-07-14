@@ -4,7 +4,6 @@
 EAPI=7
 
 MY_PN="BaiduPCS-Go"
-
 EGO_PN="github.com/iikira/${MY_PN}"
 
 if [[ ${PV} == *9999 ]]; then
