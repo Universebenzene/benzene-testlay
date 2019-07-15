@@ -9,12 +9,9 @@ EGO_PN="github.com/iikira/${MY_PN}"
 if [[ ${PV} == *9999 ]]; then
 	inherit golang-build golang-vcs
 else
-	EGO_VENDOR=( "${EGO_PN} v${PV}" )
-
 	inherit golang-build golang-vcs-snapshot
 
-	SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		${EGO_VENDOR_URI}"
+	SRC_URI="https://${EGO_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86 ~arm ~arm64 ~mips"
 fi
 
@@ -31,12 +28,9 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=""
 
-src_prepare() {
-	rm -r "src/${EGO_PN}/vendor/${EGO_PN}" || die
-	default
-}
+S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 src_install() {
+	default
 	newbin ${MY_PN} baidupcs-go
-	dodoc "src/${EGO_PN}/README.md"
 }
