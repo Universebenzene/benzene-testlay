@@ -31,6 +31,7 @@ BDEPEND=""
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+	use pkginfo || eapply "${FILESDIR}/${PN}-disable_setuptools_markdown.patch"
 
 	distutils-r1_python_prepare_all
 }
