@@ -9,7 +9,7 @@ EGO_PN="github.com/iikira/${MY_PN}"
 if [[ ${PV} == *9999 ]]; then
 	inherit golang-build golang-vcs
 else
-	EGO_VENDOR=( "github.com/iikira/${MY_PN} v${PV}" )
+	EGO_VENDOR=( "${EGO_PN} v${PV}" )
 
 	inherit golang-build golang-vcs-snapshot
 
