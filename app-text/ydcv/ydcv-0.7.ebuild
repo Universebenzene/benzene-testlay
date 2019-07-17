@@ -15,14 +15,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="pkginfo"
 
-RDEPEND="dev-python/setuptools"
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-	dev-python/setuptools_scm
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	pkginfo? (
-		dev-python/setuptools-markdown
-		dev-python/pypandoc
-		dev-python/wheel
-		dev-python/pip
+		dev-python/setuptools-markdown[${PYTHON_USEDEP}]
+		dev-python/pypandoc[${PYTHON_USEDEP}]
+		dev-python/wheel[${PYTHON_USEDEP}]
+		dev-python/pip[${PYTHON_USEDEP}]
 	)
 "
 
