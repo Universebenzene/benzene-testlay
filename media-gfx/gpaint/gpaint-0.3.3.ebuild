@@ -6,7 +6,7 @@ EAPI=7
 MY_PN=${PN}-2
 MY_P=${MY_PN}-${PV}
 
-inherit desktop
+inherit desktop xdg-utils
 
 DESCRIPTION="A small easy-to-use paint program for the GNOME Desktop"
 HOMEPAGE="http://savannah.gnu.org/projects/gpaint/"
@@ -32,4 +32,16 @@ src_install() {
 	domenu ${PN}.desktop
 	doicon ${FILESDIR}/${MY_PN}.xpm
 	doicon -s scalable ${FILESDIR}/${MY_PN}.svg
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
