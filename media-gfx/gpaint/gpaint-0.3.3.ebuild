@@ -12,7 +12,7 @@ DESCRIPTION="A small easy-to-use paint program for the GNOME Desktop"
 HOMEPAGE="http://savannah.gnu.org/projects/gpaint/"
 SRC_URI="ftp://alpha.gnu.org/gnu/${PN}/${MY_P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
