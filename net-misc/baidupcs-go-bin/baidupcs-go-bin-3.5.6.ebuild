@@ -32,5 +32,5 @@ src_install() {
 		cd "${S}/${MY_P}-linux-386" || die
 	fi
 	default
-	newbin ${MY_PN} baidupcs-go
+	newbin ${MY_PN} ${PN%-bin}
 }

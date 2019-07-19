@@ -32,5 +32,5 @@ S="${WORKDIR}/${P}/src/${EGO_PN}"
 
 src_install() {
 	default
-	newbin ${MY_PN} baidupcs-go
+	newbin ${MY_PN} ${PN}
 }
