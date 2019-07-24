@@ -16,8 +16,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="pkginfo"
 
 RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+DEPEND="${RDEPEND}"
+BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	pkginfo? (
 		dev-python/setuptools-markdown[${PYTHON_USEDEP}]
 		dev-python/pypandoc[${PYTHON_USEDEP}]
@@ -25,8 +25,6 @@ DEPEND="${RDEPEND}
 		dev-python/pip[${PYTHON_USEDEP}]
 	)
 "
-
-BDEPEND=""
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
