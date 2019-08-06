@@ -34,8 +34,6 @@ python_prepare_all() {
 }
 
 python_install_all() {
-	DOCS=( README.md )
-
 	insinto /usr/share/zsh/site-functions
 	newins contrib/zsh_completion _${PN}
 
