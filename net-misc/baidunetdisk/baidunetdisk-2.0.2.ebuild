@@ -30,9 +30,9 @@ src_install() {
 	insinto /usr
 	doins -r usr/share
 
-	insinto /usr/lib
+	insinto /opt
 	doins -r opt/${PN}
-	fperms 0755 /usr/lib/${PN}/${PN}
+	fperms +x /opt/${PN}/${PN}
 
 	newbin ${FILESDIR}/${PN}-wrapper.sh ${PN}
 }

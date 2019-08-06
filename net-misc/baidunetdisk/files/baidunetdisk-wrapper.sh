@@ -1,2 +1,2 @@
 #!/bin/sh
-HOME="${HOME:-/tmp}/.local/share/baidunetdisk" exec /usr/lib/baidunetdisk/baidunetdisk "$@"
+HOME="${HOME:-/tmp}/.local/share/baidunetdisk" exec /opt/baidunetdisk/baidunetdisk "$@"
