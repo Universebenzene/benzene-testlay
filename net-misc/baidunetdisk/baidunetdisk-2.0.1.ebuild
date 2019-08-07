@@ -27,6 +27,10 @@ S="${WORKDIR}"
 PATCHES=( "${FILESDIR}" )
 
 src_install() {
+	unpack usr/share/doc/${PN}/*.gz
+	rm -r usr/share/doc || die
+	local DOCS=( changelog )
+
 	insinto /usr
 	doins -r usr/share
 
@@ -35,4 +39,5 @@ src_install() {
 	fperms +x /opt/${PN}/${PN}
 
 	newbin ${FILESDIR}/${PN}-wrapper.sh ${PN}
+	default
 }
