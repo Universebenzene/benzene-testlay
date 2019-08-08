@@ -13,7 +13,7 @@ app-text/ydcv             | 0.7            | Need the [HomeAssistantRepository](
 media-video/gnome-mplayer | 1.0.9-r1       | Dropped by official portage
 media-gfx/gpaint          | 0.3.3          | With patches from Debian
 net-misc/baidunetdisk     | 2.0.1; 2.0.2   | Converted from [AUR](https://aur.archlinux.org/packages/baidunetdisk-bin)
-net-misc/baidupcs-go      | 3.5.6          |
+net-misc/baidupcs-go      | 3.5.6; (live)  |
 net-misc/baidupcs-go-bin  | 3.5.6          |
 net-wireless/blueman      | 2.0.4; 2.1.1   | Without conflicting with net-wireless/gnome-bluetooth
 x11-misc/lain             | (live version) |
