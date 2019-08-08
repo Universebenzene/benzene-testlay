@@ -27,9 +27,8 @@ S="${WORKDIR}"
 PATCHES=( "${FILESDIR}" )
 
 src_install() {
-	unpack usr/share/doc/${PN}/*.gz
-	rm -r usr/share/doc || die
-	dodoc changelog
+	mv usr/share/doc/{${PN},${PF}} || die
+	gzip -d usr/share/doc/${PF}/*.gz || die
 
 	insinto /usr
 	doins -r usr/share
