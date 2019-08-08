@@ -23,14 +23,9 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=""
 
-S=${WORKDIR}
+S=${WORKDIR}/${MY_P}-linux-${ARCH}
 
 src_install() {
-	if use amd64; then
-		cd "${S}/${MY_P}-linux-amd64" || die
-	elif use x86; then
-		cd "${S}/${MY_P}-linux-386" || die
-	fi
 	default
 	newbin ${MY_PN} ${PN%-bin}
 }
