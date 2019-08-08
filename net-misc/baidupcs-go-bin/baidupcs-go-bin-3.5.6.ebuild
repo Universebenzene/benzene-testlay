@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=""
 
-S=${WORKDIR}/${MY_P}-linux-${ARCH}
+S="${WORKDIR}/${MY_P}-linux-${ARCH}"
 
 src_install() {
 	default
