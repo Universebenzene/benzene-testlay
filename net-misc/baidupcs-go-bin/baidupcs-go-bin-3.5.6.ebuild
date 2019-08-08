@@ -25,6 +25,8 @@ BDEPEND=""
 
 S="${WORKDIR}/${MY_P}-linux-${ARCH/x8/38}"
 
+QA_PREBUILT="usr/bin/baidupcs-go"
+
 src_install() {
 	default
 	newbin ${MY_PN} ${PN%-bin}
