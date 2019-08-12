@@ -16,4 +16,4 @@ net-misc/baidunetdisk     | 2.0.1; 2.0.2   | Converted from [AUR](https://aur.ar
 net-misc/baidupcs-go      | 3.5.6; (live)  |
 net-misc/baidupcs-go-bin  | 3.5.6          |
 net-wireless/blueman      | 2.0.4; 2.1.1   | Without conflicting with net-wireless/gnome-bluetooth
-x11-misc/lain             | (live version) |
+x11-libs/lain             | (live version) |
