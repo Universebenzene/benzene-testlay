@@ -1,0 +1,2 @@
+#!/bin/sh
+/sbin/reboot || /sbin/openrc-shutdown -r now

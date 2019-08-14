@@ -1,0 +1,2 @@
+#!/bin/sh
+/sbin/halt || /sbin/openrc-shutdown -H now

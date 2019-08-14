@@ -13,12 +13,12 @@ SRC_URI="https://github.com/felixonmars/ydcv/archive/${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="pkginfo"
+IUSE="pkg-info"
 
 RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]
-	pkginfo? (
+	pkg-info? (
 		dev-python/setuptools-markdown[${PYTHON_USEDEP}]
 		dev-python/pypandoc[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
@@ -28,7 +28,7 @@ BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
-	use pkginfo || eapply "${FILESDIR}/${PN}-disable_setuptools_markdown.patch"
+	use pkg-info || eapply "${FILESDIR}/${PN}-disable_setuptools_markdown.patch"
 
 	distutils-r1_python_prepare_all
 }
