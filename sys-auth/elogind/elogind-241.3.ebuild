@@ -85,9 +85,9 @@ src_configure() {
 		-Dpam=$(usex pam true false)
 		-Dselinux=$(usex selinux true false)
 		-Dutmp=$(usex elibc_musl false true)
-		-Dhalt-path=$(usex openrc-init '/lib/rc/bin/ehalt' '/sbin/halt')
-		-Dpoweroff-path=$(usex openrc-init '/lib/rc/bin/epoweroff' '/sbin/poweroff')
-		-Dreboot-path=$(usex openrc-init '/lib/rc/bin/ereboot' '/sbin/reboot')
+		-Dhalt-path=$(usex openrc-init '/sbin/ehalt' '/sbin/halt')
+		-Dpoweroff-path=$(usex openrc-init '/sbin/epoweroff' '/sbin/poweroff')
+		-Dreboot-path=$(usex openrc-init '/sbin/ereboot' '/sbin/reboot')
 	)
 
 	meson_src_configure
@@ -104,8 +104,7 @@ src_install() {
 	newconfd ${PN}.conf ${PN}
 
 	if use openrc-init; then
-		exeinto /lib/rc/bin
-		doexe "${FILESDIR}"/{ehalt,epoweroff,ereboot}
+		dosbin "${FILESDIR}"/{ehalt,epoweroff,ereboot}
 	fi
 }
 
