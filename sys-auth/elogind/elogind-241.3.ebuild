@@ -104,6 +104,7 @@ src_install() {
 	newconfd ${PN}.conf ${PN}
 
 	if use openrc-init; then
+		into /sbin
 		dosbin "${FILESDIR}"/{ehalt,epoweroff,ereboot}
 	fi
 }
