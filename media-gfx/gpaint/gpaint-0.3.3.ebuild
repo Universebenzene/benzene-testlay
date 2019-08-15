@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="x11-libs/gdk-pixbuf
-	gnome-base/libglade
+DEPEND="x11-libs/gdk-pixbuf:2
+	gnome-base/libglade:2.0
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
