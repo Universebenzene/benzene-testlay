@@ -17,6 +17,6 @@ net-misc/baidunetdisk       | 2.0.1; 2.0.2; 3.0.1    | Converted from [AUR](http
 net-misc/baidupcs-go        | 3.6; 3.6.1; (live)     |
 net-misc/baidupcs-go-bin    | 3.6; 3.6.1             |
 net-wireless/blueman        | 2.0.4; 2.1.1; 2.1.1-r1 | Without conflicting with net-wireless/gnome-bluetooth
-sys-auth/elogind            | 241.3                  | Add support for shotdown & reboot under `openrc-init`, which can be controlled by that USE flag
+sys-auth/elogind            | 241.3; 241.4           | Add support for shotdown & reboot under `openrc-init`, which can be controlled by that USE flag
 x11-libs/lain               | (live version)         |
 x11-misc/arch-xdg-menu      | 0.7.6.3                |
