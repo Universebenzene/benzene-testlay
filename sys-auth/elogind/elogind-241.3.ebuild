@@ -33,6 +33,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!sys-apps/systemd
+	!>=sys-apps/openrc-0.42
 "
 PDEPEND="
 	sys-apps/dbus
