@@ -33,7 +33,9 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!sys-apps/systemd
-	!>=sys-apps/openrc-0.42
+	openrc-init? (
+		!sys-apps/openrc[sysv-utils(-)]
+	)
 "
 PDEPEND="
 	sys-apps/dbus
