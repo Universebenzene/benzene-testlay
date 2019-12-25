@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <repositories version="1.0">
 <repo priority="50" status="unofficial">
-	<name>benzene-overlay</name>
-	<description>Universebenzene's own overlay</description>
-	<homepage>https://github.com/Universebenzene/benzene-overlay</homepage>
+	<name>benzene-testlay</name>
+	<description>Universebenzene's personal overlay - testing</description>
+	<homepage>https://github.com/Universebenzene/benzene-testlay</homepage>
 	<owner>
 		<email>universebenzene@sina.com</email>
 		<name>Universebenzene</name>
 	</owner>
-	<source type="git">https://github.com/Universebenzene/benzene-overlay.git</source>
-	<feed>https://github.com/Universebenzene/benzene-overlay/commits/master.atom</feed>
+	<source type="git">https://github.com/Universebenzene/benzene-testlay.git</source>
+	<feed>https://github.com/Universebenzene/benzene-testlay/commits/master.atom</feed>
 </repo>
 </repositories>

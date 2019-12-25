@@ -1,9 +1,11 @@
 # benzene-overlay
-Universebenzene's own Gentoo overlay.
+Universebenzene's personal Gentoo overlay for testing.
 
 Including some old software that no longer supported by official portage.
 
-To add this overlay, just run `layman -o https://raw.githubusercontent.com/Universebenzene/benzene-overlay/master/repositories.xml -f -a benzene-overlay`.
+Some packages will be available in new overlay in the future.
+
+To add this overlay, just run `layman -o https://raw.githubusercontent.com/Universebenzene/benzene-overlay/master/repositories.xml -f -a benzene-testlay`.
 
 ### Available packages
 
