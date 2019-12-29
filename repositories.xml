@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <repositories version="1.0">
-<repo priority="50" status="unofficial">
+<repo priority="30" status="unofficial">
 	<name>benzene-testlay</name>
 	<description>Universebenzene's personal overlay - testing</description>
 	<homepage>https://github.com/Universebenzene/benzene-testlay</homepage>
