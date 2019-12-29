@@ -3,7 +3,7 @@ Universebenzene's personal Gentoo overlay for testing.
 
 Including some old software that no longer supported by official portage.
 
-Some packages will be available in new overlay in the future.
+For some packages you'd better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay) instead.
 
 To add this overlay, just run `layman -o https://raw.githubusercontent.com/Universebenzene/benzene-testlay/master/repositories.xml -f -a benzene-testlay`.
 
@@ -22,3 +22,5 @@ net-wireless/blueman        | 2.0.4; 2.1.1; 2.1.1-r1 | Without conflicting with 
 sys-auth/elogind            | 241.3; 241.4           | Add support for shotdown & reboot under `openrc-init`, which can be controlled by that USE flag (not needed for `sys-apps/openrc[sysv-utils]>=0.42`)
 x11-libs/lain               | (live version)         |
 x11-misc/arch-xdg-menu      | 0.7.6.3                |
+dev-python/astropy          | 3.2.3; 4.0             | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay) instead
+dev-python/astropy-helpers  | 3.2.2; 4.0.1           | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay) instead
