@@ -24,3 +24,4 @@ x11-libs/lain               | (live version)         |
 x11-misc/arch-xdg-menu      | 0.7.6.3                |
 dev-python/astropy          | 3.2.3; 4.0             | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
 dev-python/astropy-helpers  | 3.2.2; 4.0.1           | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
+dev-python/gwcs             | 0.12.0                 | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
