@@ -26,3 +26,4 @@ dev-python/astropy          | 3.2.3; 4.0             | Only for testing. Better 
 dev-python/astropy-helpers  | 3.2.2; 4.0.1           | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
 dev-python/astropy-healpix  | 0.5                    | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
 dev-python/gwcs             | 0.12.0                 | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
+dev-python/pyvo             | 1.0                    | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
