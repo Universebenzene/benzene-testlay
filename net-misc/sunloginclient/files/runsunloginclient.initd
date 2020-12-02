@@ -1,0 +1,7 @@
+#!/sbin/openrc-run
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command="/opt/sunlogin/bin/oray_rundaemon"
+command_args="-e 'source /opt/sunlogin/etc/watch.sh' -d"
+description="check running sunloginclinet loop"

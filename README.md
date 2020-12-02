@@ -18,6 +18,7 @@ media-sound/pulseaudio-alsa | 2                      | Directly from [Arch](http
 net-misc/baidunetdisk       | 2.0.1; 2.0.2; 3.0.1    | Converted from [AUR](https://aur.archlinux.org/packages/baidunetdisk-bin)
 net-misc/baidupcs-go        | 3.6; 3.6.1; (live)     |
 net-misc/baidupcs-go-bin    | 3.6; 3.6.1             |
+net-misc/sunloginclient     | 10.1.1.38139           | Only work for **root user**. While running on normal users it get segmentation fault. Don't know why. **NEED HELP**
 net-wireless/blueman        | 2.0.4; 2.1.1-r1; 2.1.2 | Without conflicting with net-wireless/gnome-bluetooth
 sys-auth/elogind            | 241.3; 241.4           | Add support for shotdown & reboot under `openrc-init`, which can be controlled by that USE flag (not needed for `sys-apps/openrc[sysv-utils]>=0.42`)
 x11-libs/lain               | (live version)         |
