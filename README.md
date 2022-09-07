@@ -21,7 +21,7 @@ media-sound/pulseaudio-alsa  | 2                      | Directly from [Arch](htt
 net-misc/baidunetdisk        | 2.0.1; 2.0.2; 3.0.1    | Converted from [AUR](https://aur.archlinux.org/packages/baidunetdisk-bin)
 net-misc/baidupcs-go         | 3.6; 3.6.1; (live)     |
 net-misc/baidupcs-go-bin     | 3.6; 3.6.1             |
-net-misc/sunloginclient      | 11.0.1.44968           | CANNOT PROPERLY WORK ON GENTOO WITH OPENRC YET. More tests are needed.
+net-misc/sunloginclient      | 11.0.1.44968{,-r1}     | CANNOT PROPERLY WORK ON GENTOO WITH OPENRC YET. More tests are needed.
 net-wireless/blueman         | 2.0.4; 2.1.1-r1; 2.1.2 | Without conflicting with net-wireless/gnome-bluetooth
 sys-auth/elogind             | 241.3; 241.4           | Add support for shotdown & reboot under `openrc-init`, which can be controlled by that USE flag (not needed for `sys-apps/openrc[sysv-utils]>=0.42`)
 x11-libs/lain                | (live version)         |
