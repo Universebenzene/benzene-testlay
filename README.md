@@ -14,6 +14,7 @@ Package name | Available version | Additional information
 app-i18n/fcitx-chinese-addon | 5.0.15; (live)         | Change icon name to install along with fcitx:4 (need more testing)
 app-i18n/fcitx-table-extra   | 5.0.11                 | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-table-other   | 5.0.10                 | Change icon name to install along with slot 4 (need more testing)
+app-portage/repoman          | 3.0.3-r2               | Dropped by official portage
 app-text/ydcv                | 0.7                    | Need the [HomeAssistantRepository](https://git.edevau.net/onkelbeh/HomeAssistantRepository) overlay if you enable `pkg-info` use. Some other issues [here](https://forums.gentoo.org/viewtopic-p-8352006.html)
 media-video/gnome-mplayer    | 1.0.9-r1               | Dropped by official portage
 media-gfx/gpaint             | 0.3.3                  | With patches from Debian
