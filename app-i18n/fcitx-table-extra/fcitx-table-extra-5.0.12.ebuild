@@ -26,3 +26,9 @@ BDEPEND="
 	kde-frameworks/extra-cmake-modules
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	for iconn in icons/*/apps/fcitx*g; do { mv ${iconn} ${iconn%%-*}5-${iconn#*-} || die ; }; done
+	sed -i "/^Icon=/s/fcitx/fcitx5/" tables/*conf.in* || die
+	cmake_src_prepare
+}
