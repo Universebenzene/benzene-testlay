@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,17 +8,13 @@ inherit cmake xdg
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/fcitx/fcitx5-chinese-addons.git"
+	SRC_URI=""
 else
 	MY_PN="fcitx5-chinese-addons"
 	S="${WORKDIR}/${MY_PN}-${PV}"
-	SRC_URI="https://github.com/fcitx/fcitx5-chinese-addons/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~loong ~x86"
+	SRC_URI="https://download.fcitx-im.org/fcitx5/fcitx5-chinese-addons/fcitx5-chinese-addons-${PV}_dict.tar.xz"
+	KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 fi
-
-SRC_URI+="
-https://download.fcitx-im.org/data/py_stroke-20121124.tar.gz -> fcitx-data-py_stroke-20121124.tar.gz
-https://download.fcitx-im.org/data/py_table-20121124.tar.gz -> fcitx-data-py_table-20121124.tar.gz
-"
 
 DESCRIPTION="Addons related to Chinese, including IME previous bundled inside fcitx4."
 HOMEPAGE="https://github.com/fcitx/fcitx5-chinese-addons"
@@ -48,9 +44,9 @@ RDEPEND="
 		dev-qt/qtdbus:5
 		dev-qt/qtconcurrent:5
 		app-i18n/fcitx-qt:5[qt5,-onlyplugin]
-		browser? ( dev-qt/qtwebengine:5 )
+		browser? ( !loong? ( !x86? ( dev-qt/qtwebengine:5 ) ) )
 	)
-	lua? ( app-i18n/fcitx-lua:5 )
+	!arm64? ( !loong? ( lua? ( app-i18n/fcitx-lua:5 ) ) )
 	test? ( dev-util/lcov )
 "
 DEPEND="${RDEPEND}
@@ -58,8 +54,6 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	ln -s "${DISTDIR}/fcitx-data-py_stroke-20121124.tar.gz" modules/pinyinhelper/py_stroke-20121124.tar.gz || die
-	ln -s "${DISTDIR}/fcitx-data-py_table-20121124.tar.gz" modules/pinyinhelper/py_table-20121124.tar.gz || die
 	for iconn in icon/*/apps/fcitx*g; do { mv ${iconn} ${iconn%%-*}5-${iconn#*-} || die ; }; done
 	sed -i "/^Icon=/s/fcitx/fcitx5/" im/*/*conf.in* || die
 	cmake_src_prepare
@@ -71,11 +65,19 @@ src_configure() {
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}/etc"
 		-DENABLE_GUI=$(usex gui)
 		-DENABLE_OPENCC=$(usex opencc)
-		-DENABLE_BROWSER=$(usex browser)
 		-DENABLE_CLOUDPINYIN=$(usex cloudpinyin)
 		-DENABLE_TEST=$(usex test)
 		-DENABLE_COVERAGE=$(usex coverage)
 		-DUSE_WEBKIT=no
 	)
+	if use loong || use x86; then
+		mycmakeargs+=(
+			-DENABLE_BROWSER=no
+		)
+	else
+		mycmakeargs+=(
+			-DENABLE_BROWSER=$(usex browser)
+		)
+	fi
 	cmake_src_configure
 }
