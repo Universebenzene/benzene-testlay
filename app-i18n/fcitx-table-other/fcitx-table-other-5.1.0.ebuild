@@ -1,18 +1,18 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake xdg
 
-MY_PN=fcitx5-table-extra
-MY_P="${MY_PN}-${PV}"
+MY_PN=fcitx5-table-other
+MY_P="{$MY_PN}-${PN}"
 S="${WORKDIR}/${MY_PN}-${PV}"
-DESCRIPTION="Provides extra table for Fcitx, including Boshiamy, Zhengma, Cangjie, and Quick"
-HOMEPAGE="https://github.com/fcitx/fcitx5-table-extra"
-SRC_URI="https://github.com/fcitx/fcitx5-table-extra/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Provides some other tables for Fcitx, fork from ibus-table-others, scim-tables"
+HOMEPAGE="https://github.com/fcitx/fcitx5-table-other"
+SRC_URI="https://github.com/fcitx/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-3+"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
@@ -29,6 +29,6 @@ BDEPEND="
 
 src_prepare() {
 	for iconn in icons/*/apps/fcitx*g; do { mv ${iconn} ${iconn%%-*}5-${iconn#*-} || die ; }; done
-	sed -i "/^Icon=/s/fcitx/fcitx5/" tables/*conf.in* || die
+	sed -i "/^Icon=/s/fcitx/fcitx5/" tables/*/*conf.in* || die
 	cmake_src_prepare
 }
