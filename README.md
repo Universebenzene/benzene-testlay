@@ -11,7 +11,7 @@ To add this overlay, just run `layman -o https://raw.githubusercontent.com/Unive
 
 Package name | Available version | Additional information
 ------------ | :---------------: | ----------------------
-app-i18n/fcitx-chinese-addon | 5.0.17; 5.1.0; (live)     | Change icon name to install along with fcitx:4 (need more testing)
+app-i18n/fcitx-chinese-addon | 5.0.17; 5.1.0-r1; (live)  | Change icon name to install along with fcitx:4 (need more testing)
 app-i18n/fcitx-table-extra   | 5.0.13; 5.1.0             | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-table-other   | 5.0.11; 5.1.1;            | Change icon name to install along with slot 4 (need more testing)
 app-portage/repoman          | 3.0.3-r2                  | Dropped by official portage

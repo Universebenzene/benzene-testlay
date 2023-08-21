@@ -52,6 +52,10 @@ DEPEND="${RDEPEND}
 	kde-frameworks/extra-cmake-modules:5
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/fix-build-without-lua.patch"
+)
+
 src_prepare() {
 	for iconn in icon/*/apps/fcitx*g; do { mv ${iconn} ${iconn%%-*}5-${iconn#*-} || die ; }; done
 	sed -i "/^Icon=/s/fcitx/fcitx5/" im/*/*conf.in* || die
