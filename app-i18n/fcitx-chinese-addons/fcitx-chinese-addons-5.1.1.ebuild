@@ -8,7 +8,6 @@ inherit cmake xdg
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/fcitx/fcitx5-chinese-addons.git"
-	SRC_URI=""
 else
 	MY_PN="fcitx5-chinese-addons"
 	S="${WORKDIR}/${MY_PN}-${PV}"
@@ -49,7 +48,7 @@ RDEPEND="
 	test? ( dev-util/lcov )
 "
 DEPEND="${RDEPEND}
-	kde-frameworks/extra-cmake-modules:5
+	kde-frameworks/extra-cmake-modules:0
 	virtual/pkgconfig"
 
 src_prepare() {

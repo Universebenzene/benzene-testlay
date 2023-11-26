@@ -23,7 +23,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	kde-frameworks/extra-cmake-modules
+	kde-frameworks/extra-cmake-modules:0
 	virtual/pkgconfig
 "
 

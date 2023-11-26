@@ -8,7 +8,6 @@ inherit cmake xdg
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/fcitx/fcitx5-chinese-addons.git"
-	SRC_URI=""
 else
 	MY_PN="fcitx5-chinese-addons"
 	S="${WORKDIR}/${MY_PN}-${PV}"
@@ -29,8 +28,8 @@ REQUIRED_USE="
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=app-i18n/fcitx-5.0.11:5
-	>=app-i18n/libime-1.0.14:5
+	>=app-i18n/fcitx-5.1.2:5
+	>=app-i18n/libime-1.1.2:5
 
 	>=dev-libs/boost-1.61:=
 	dev-libs/libfmt
@@ -41,7 +40,6 @@ RDEPEND="
 		dev-qt/qtgui:5
 		dev-qt/qtcore:5
 		dev-qt/qtwidgets:5
-		dev-qt/qtdbus:5
 		dev-qt/qtconcurrent:5
 		app-i18n/fcitx-qt:5[qt5,-onlyplugin]
 		browser? ( !loong? ( !x86? ( dev-qt/qtwebengine:5 ) ) )
@@ -50,7 +48,7 @@ RDEPEND="
 	test? ( dev-util/lcov )
 "
 DEPEND="${RDEPEND}
-	kde-frameworks/extra-cmake-modules:5
+	kde-frameworks/extra-cmake-modules:0
 	virtual/pkgconfig"
 
 src_prepare() {
