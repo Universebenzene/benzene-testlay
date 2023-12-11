@@ -17,7 +17,6 @@ fi
 
 DESCRIPTION="Addons related to Chinese, including IME previous bundled inside fcitx4."
 HOMEPAGE="https://github.com/fcitx/fcitx5-chinese-addons"
-
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="5"
 IUSE="webengine +cloudpinyin coverage +qt5 lua +opencc test"
