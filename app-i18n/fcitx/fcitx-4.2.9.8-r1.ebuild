@@ -95,6 +95,8 @@ src_prepare() {
 		ln -s "${DISTDIR}/fcitx-data-py_table-20121124.tar.gz" src/module/pinyin-enhance/data/py_table-20121124.tar.gz || die
 		ln -s "${DISTDIR}/fcitx-data-en_dict-20121020.tar.gz" src/module/spell/dict/en_dict-20121020.tar.gz || die
 	fi
+	for iconn in $(find data/icon -name '*fcitx*g'); do { mv ${iconn} ${iconn%%tx*}tx4${iconn##*tx} || die ; } ; done
+	for din in $(find . -name '*desktop.in*'); do { sed -i '/Icon=/s/fcitx/fcitx4/g' ${din} || die ; } ; done
 
 	cmake_src_prepare
 }
