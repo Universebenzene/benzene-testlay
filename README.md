@@ -13,7 +13,7 @@ Package name | Available version | Additional information
 ------------ | :---------------: | ----------------------
 app-i18n/fcitx               | 4.2.9.8; 5.1.5                 | Use patch from [@bekcpear](https://github.com/bekcpear) to let fcitx:5 not to be conflict with :4
 app-i18n/fcitx-chinese-addon | 5.1.0-r1; 5.1.1; 5.1.2; (live) | Change icon name to install along with fcitx:4 (need more testing)
-app-i18n/fcitx-table-extra   | 5.0.13; 5.1.0                  | Change icon name to install along with slot 4 (need more testing)
+app-i18n/fcitx-table-extra   | 0.3.8-r1; 5.0.13; 5.1.0        | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-table-other   | 5.0.11; 5.1.1;                 | Change icon name to install along with slot 4 (need more testing)
 app-portage/repoman          | 3.0.3-r2                       | Dropped by official portage
 app-text/ydcv                | 0.7                            | Need the [HomeAssistantRepository](https://git.edevau.net/onkelbeh/HomeAssistantRepository) overlay if you enable `pkg-info` use. Some other issues [here](https://forums.gentoo.org/viewtopic-p-8352006.html)
