@@ -11,7 +11,7 @@ To add this overlay, just run `layman -o https://raw.githubusercontent.com/Unive
 
 Package name | Available version | Additional information
 ------------ | :---------------: | ----------------------
-app-i18n/fcitx               | 4.2.9.8-r1; 5.1.5; 5.1.6       | Use patch from [@bekcpear](https://github.com/bekcpear) to let fcitx:5 not to be conflict with :4; also modify icons name for fcitx:4
+app-i18n/fcitx               | 4.2.9.8-r1; 5.1.6; 5.1.7       | Use patch from [@bekcpear](https://github.com/bekcpear) to let fcitx:5 not to be conflict with :4; also modify icons name for fcitx:4
 app-i18n/fcitx-chinese-addon | 5.1.0-r1; 5.1.1; 5.1.2; (live) | Change icon name to install along with fcitx:4 (need more testing)
 app-i18n/fcitx-table-extra   | 0.3.8-r1; 5.0.13; 5.1.0        | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-table-other   | 5.0.11; 5.1.1;                 | Change icon name to install along with slot 4 (need more testing)

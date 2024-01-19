@@ -13,7 +13,7 @@ SRC_URI="https://download.fcitx-im.org/fcitx5/fcitx5/fcitx5-${PV}_dict.tar.xz ->
 
 LICENSE="LGPL-2+ Unicode-DFS-2016"
 SLOT="5"
-KEYWORDS="~amd64 ~loong ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="+autostart doc +emoji +enchant +keyboard presage +server systemd test wayland +X"
 REQUIRED_USE="
 	|| ( wayland X )
@@ -30,7 +30,7 @@ RDEPEND="
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango[X?]
 	doc? (
-		app-doc/doxygen
+		app-text/doxygen
 		dev-texlive/texlive-fontutils
 	)
 	emoji? ( sys-libs/zlib )
