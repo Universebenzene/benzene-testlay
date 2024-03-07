@@ -1,20 +1,17 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Automatic generate WM menu from xdg files"
 HOMEPAGE="https://wiki.archlinux.org/index.php/XdgMenu"
-SRC_URI="https://arch.p5n.pp.ru/~sergej/dl/2018/${P}.tar.gz"
+SRC_URI="https://arch.p5n.pp.ru/~sergej/dl/2023/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-DEPEND=""
 RDEPEND="dev-perl/XML-Parser"
-BDEPEND=""
 
 S="${WORKDIR}"
 
