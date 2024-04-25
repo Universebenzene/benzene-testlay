@@ -5,12 +5,13 @@ EAPI=8
 
 MY_PN="fcitx5"
 
-inherit cmake xdg
+inherit cmake unpacker xdg
 
 DESCRIPTION="Fcitx 5 is a generic input method framework"
 HOMEPAGE="https://fcitx-im.org/ https://github.com/fcitx/fcitx5"
-SRC_URI="https://download.fcitx-im.org/fcitx5/fcitx5/fcitx5-${PV}_dict.tar.xz -> ${P}.tar.xz"
+SRC_URI="https://download.fcitx-im.org/fcitx5/fcitx5/fcitx5-${PV}_dict.tar.zst -> ${P}.tar.zst"
 
+S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="LGPL-2+ Unicode-DFS-2016"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
@@ -20,6 +21,7 @@ REQUIRED_USE="
 	X? ( keyboard )
 	wayland? ( keyboard )
 "
+
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -75,8 +77,6 @@ PATCHES=(
 	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
 	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
 )
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_configure() {
 	local mycmakeargs=(
