@@ -44,6 +44,7 @@ python_prepare_all() {
 		"${DISTDIR}/${P}-unit-test-bug-779967.patch"
 	)
 	eapply -p2 "${patches[@]}"
+	eapply "${FILESDIR}/${P}-fix-portage-3.0.65.patch"
 
 	distutils-r1_python_prepare_all
 }
