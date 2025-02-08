@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -75,7 +75,8 @@ BDEPEND="
 
 PATCHES=(
 	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
-	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
+#	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
+	"${FILESDIR}"/${P}-make-x11-dependencies-optional.patch
 )
 
 src_configure() {
