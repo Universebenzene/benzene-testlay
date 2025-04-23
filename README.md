@@ -34,3 +34,4 @@ dev-python/astropy-healpix   | 0.5                                          | On
 dev-python/gwcs              | 0.12.0                                       | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
 dev-python/pyvo              | 1.0                                          | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
 dev-python/reproject         | 0.6                                          | Only for testing. Better use [THIS OVERLAY](https://github.com/Universebenzene/benzene-overlay#benzene-overlay) instead
+dev-python/ssl-fetch         | 0.4-r1                                       | Required by layman
