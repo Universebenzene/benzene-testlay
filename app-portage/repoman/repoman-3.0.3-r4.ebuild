@@ -1,9 +1,10 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=no
+#DISTUTILS_USE_SETUPTOOLS=no
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..13} pypy3 )
 PYTHON_REQ_USE='bzip2(+)'
 
@@ -58,14 +59,23 @@ python_test() {
 python_install() {
 	# Install sbin scripts to bindir for python-exec linking
 	# they will be relocated in pkg_preinst()
+	rm -r "${BUILD_DIR}"/install/$(python_get_sitedir)/usr || die
 	distutils-r1_python_install \
 		--system-prefix="${EPREFIX}/usr" \
 		--bindir="$(python_get_scriptdir)" \
 		--docdir="${EPREFIX}/usr/share/doc/${PF}" \
 		--htmldir="${EPREFIX}/usr/share/doc/${PF}/html" \
+		--mandir="${EPREFIX}/usr/share/man" \
 		--sbindir="$(python_get_scriptdir)" \
 		--sysconfdir="${EPREFIX}/etc" \
 		"${@}"
+	python_doexe bin/*
+}
+
+python_install_all() {
+	DOCS=( NEWS README RELEASE-NOTES )
+	doman man/*
+	distutils-r1_python_install_all
 }
 
 pkg_postinst() {

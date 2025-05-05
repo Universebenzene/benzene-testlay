@@ -3,9 +3,10 @@
 
 EAPI="8"
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..13} pypy3 )
 PYTHON_REQ_USE="xml(+),sqlite?"
-DISTUTILS_USE_SETUPTOOLS=no
+#DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1 linux-info prefix
 
