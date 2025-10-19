@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>cjk@gentoo.org</email>
+		<name>Cjk</name>
+	</maintainer>
+	<use>
+		<flag name="gui">Install graphical user interface tool (mozc_tool)</flag>
+		<flag name="renderer">Enable native candidate window</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">google/mozc</remote-id>
+	</upstream>
+</pkgmetadata>
