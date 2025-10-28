@@ -73,11 +73,12 @@ BDEPEND="
 	kde-frameworks/extra-cmake-modules:0
 "
 
-PATCHES=(
-	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
-#	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
-	"${FILESDIR}"/${P}-make-x11-dependencies-optional.patch
-)
+#PATCHES=(
+##	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
+###	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
+##	"${FILESDIR}"/${P}-make-x11-dependencies-optional.patch
+#	"${FILESDIR}"/${P}-fix-crashlog-odr.patch
+#)
 
 src_configure() {
 	local mycmakeargs=(
@@ -120,7 +121,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	elog
-	elog "Follow the instrcutions on:"
+	elog "Follow the instructions on:"
 	elog "https://wiki.gentoo.org/wiki/Fcitx#Using_Fcitx"
 	elog "https://fcitx-im.org/wiki/Setup_Fcitx_5"
 	elog "https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland"
