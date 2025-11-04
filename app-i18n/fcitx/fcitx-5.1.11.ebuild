@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,7 +35,7 @@ RDEPEND="
 		app-text/doxygen
 		dev-texlive/texlive-fontutils
 	)
-	emoji? ( sys-libs/zlib )
+	emoji? ( virtual/zlib )
 	enchant? ( app-text/enchant:2 )
 	keyboard? (
 		app-text/iso-codes
