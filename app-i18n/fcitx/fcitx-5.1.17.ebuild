@@ -5,7 +5,7 @@ EAPI=8
 
 MY_PN="fcitx5"
 
-inherit cmake unpacker xdg
+inherit cmake flag-o-matic toolchain-funcs unpacker xdg
 
 DESCRIPTION="Fcitx 5 is a generic input method framework"
 HOMEPAGE="https://fcitx-im.org/ https://github.com/fcitx/fcitx5"
@@ -40,7 +40,7 @@ RDEPEND="
 	keyboard? (
 		app-text/iso-codes
 		dev-libs/expat
-		dev-libs/json-c:=
+		dev-cpp/nlohmann_json
 		x11-misc/xkeyboard-config
 		x11-libs/libxkbcommon[X?,wayland?]
 	)
@@ -73,12 +73,19 @@ BDEPEND="
 	kde-frameworks/extra-cmake-modules:0
 "
 
-PATCHES=(
-	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
-	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
-)
+#PATCHES=(
+##	# https://github.com/bekcpear/ryans-repos/blob/main/app-i18n/fcitx/files/fcitx-5.0.8-fix-conflicts-with-fcitx4.diff
+###	"${FILESDIR}/${PN}-5.0.8-fix-conflicts-with-fcitx4.diff"
+##	"${FILESDIR}"/${P}-make-x11-dependencies-optional.patch
+#	"${FILESDIR}"/${P}-fix-crashlog-odr.patch
+#)
 
 src_configure() {
+	if [[ $(tc-get-cxx-stdlib) == "libc++" ]]; then
+		# std::osyncstream used in fcitx-utils/log.cpp is marked as experimental.
+		append-cxxflags $(test-flags-CXX -fexperimental-library)
+	fi
+
 	local mycmakeargs=(
 		-DENABLE_DBUS=on
 		-DENABLE_XDGAUTOSTART=$(usex autostart)
@@ -119,7 +126,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	elog
-	elog "Follow the instrcutions on:"
+	elog "Follow the instructions on:"
 	elog "https://wiki.gentoo.org/wiki/Fcitx#Using_Fcitx"
 	elog "https://fcitx-im.org/wiki/Setup_Fcitx_5"
 	elog "https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland"
