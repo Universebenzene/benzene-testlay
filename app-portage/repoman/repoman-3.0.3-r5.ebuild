@@ -5,7 +5,7 @@ EAPI=8
 
 #DISTUTILS_USE_SETUPTOOLS=no
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} pypy3 )
+PYTHON_COMPAT=( python3_{12..15} pypy3 )
 PYTHON_REQ_USE='bzip2(+)'
 
 inherit distutils-r1
@@ -47,6 +47,7 @@ python_prepare_all() {
 	eapply -p2 "${patches[@]}"
 	eapply "${FILESDIR}/${P}-fix-portage-3.0.65.patch"
 	eapply "${FILESDIR}/${P}-fix-portage-3.0.67.patch"
+	eapply "${FILESDIR}/${P}-fix-portage-3.0.82.patch"
 
 	distutils-r1_python_prepare_all
 }

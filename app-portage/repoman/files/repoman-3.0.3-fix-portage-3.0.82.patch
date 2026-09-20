@@ -1,0 +1,166 @@
+Powered by GPT 5.6 Sol
+======================
+--- a/lib/repoman/argparser.py	2026-09-20 19:24:49.090306337 +0800
++++ b/lib/repoman/argparser.py	2026-09-20 19:31:21.043366304 +0800
+@@ -22,7 +22,7 @@
+ 		(opts, args), just like a call to parser.parse_args()
+ 	"""
+ 
+-	argv = portage._decode_argv(argv)
++	argv = argv
+ 
+ 	modes = {
+ 		'commit': 'Run a scan then commit changes',
+--- a/lib/repoman/copyrights.py	2021-03-28 10:23:28.088698000 +0800
++++ b/lib/repoman/copyrights.py	2026-09-20 19:26:21.013351385 +0800
+@@ -10,7 +10,7 @@
+ from portage import _unicode_decode
+ from portage import _unicode_encode
+ from portage import os
+-from portage import shutil
++import shutil
+ from portage import util
+ 
+ 
+--- a/lib/repoman/modules/scan/depend/profile.py	2021-03-28 10:23:28.090697800 +0800
++++ b/lib/repoman/modules/scan/depend/profile.py	2026-09-20 19:32:32.042274067 +0800
+@@ -14,7 +14,9 @@
+ from repoman.modules.scan.scanbase import ScanBase
+ from repoman.modules.scan.depend._depend_checks import _depend_checks
+ from repoman.modules.scan.depend._gen_arches import _gen_arches
+-from portage.dep import Atom
++from portage.dep import Atom, use_reduce
++from portage.dep.dep_check import dep_check
++from portage.exception import InvalidDependString
+ from portage.package.ebuild.profile_iuse import iter_iuse_vars
+ from portage.util import getconfig
+ from portage.util.futures import asyncio
+@@ -25,6 +27,89 @@
+ def sort_key(item):
+ 	return item[2].sub_path
+ 
++def _eval_qa_conditionals(dep_struct, use_mask, use_force):
++	"""Evaluate conditional USE dependencies using profile constraints."""
++	result = []
++
++	for node in dep_struct:
++		if isinstance(node, list):
++			result.append(
++				_eval_qa_conditionals(node, use_mask, use_force)
++			)
++		elif isinstance(node, Atom):
++			result.append(
++				node._eval_qa_conditionals(use_mask, use_force)
++			)
++		else:
++			result.append(node)
++
++	return result
++
++
++def _dep_check_all(
++	depstring,
++	mydbapi,
++	mysettings,
++	mode=None,
++	use_cache=1,
++	use_binaries=0,
++	trees=None,
++):
++	"""Compatibility implementation of the old dep_check(use="all")."""
++	myroot = mysettings["EROOT"]
++
++	use_mask = set(mysettings.usemask)
++	use_force = set()
++
++	arch = mysettings.get("ARCH")
++	use_mask.update(mysettings.archlist())
++
++	if arch:
++		use_mask.discard(arch)
++		use_force.add(arch)
++
++	use_force.update(mysettings.useforce)
++	use_force.difference_update(use_mask)
++
++	mytrees = trees[myroot]
++	parent = mytrees.get("virt_parent") or mytrees.get("parent")
++	eapi = None
++
++	if parent is not None and not parent.installed:
++		eapi = parent.eapi
++
++	try:
++		dep_struct = use_reduce(
++			depstring,
++			uselist=(),
++			masklist=use_mask,
++			matchall=True,
++			excludeall=use_force,
++			opconvert=True,
++			token_class=Atom,
++			eapi=eapi,
++		)
++	except InvalidDependString as e:
++		return [0, str(e)]
++
++	# The old dep_check passed these constraints to
++	# Atom._eval_qa_conditionals() during dependency expansion.
++	dep_struct = _eval_qa_conditionals(
++		dep_struct,
++		use_mask,
++		use_force,
++	)
++
++	return dep_check(
++		dep_struct,
++		mydbapi,
++		mysettings,
++		mode=mode,
++		myuse=(),
++		use_cache=use_cache,
++		use_binaries=use_binaries,
++		trees=trees,
++	)
+ 
+ class ProfileDependsChecks(ScanBase):
+ 	'''Perform dependency checks for the different profiles'''
+@@ -259,9 +344,13 @@
+ 					if not myvalue:
+ 						continue
+ 
+-					success, atoms = portage.dep_check(
+-						myvalue, self.portdb, dep_settings,
+-						use="all", mode=matchmode, trees=self.repo_settings.trees)
++					success, atoms = _dep_check_all(
++						myvalue,
++						self.portdb,
++						dep_settings,
++						mode=matchmode,
++						trees=self.repo_settings.trees,
++					)
+ 
+ 					results.append(types.SimpleNamespace(atoms=atoms, success=success, mykey=mykey, mytype=mytype))
+ 
+--- a/lib/repoman/tests/changelog/test_echangelog.py	2021-03-28 10:23:28.093697800 +0800
++++ b/lib/repoman/tests/changelog/test_echangelog.py	2026-09-20 19:26:37.727217786 +0800
+@@ -5,7 +5,7 @@
+ import time
+ 
+ from portage import os
+-from portage import shutil
++import shutil
+ from portage.tests import TestCase
+ from repoman.utilities import UpdateChangeLog
+ 
+--- a/lib/repoman/utilities.py	2026-09-20 19:24:49.091327939 +0800
++++ b/lib/repoman/utilities.py	2026-09-20 19:26:02.677071305 +0800
+@@ -32,7 +32,7 @@
+ from repoman._portage import portage
+ 
+ from portage import os
+-from portage import shutil
++import shutil
+ from portage import _encodings
+ from portage import _unicode_decode
+ from portage import _unicode_encode
