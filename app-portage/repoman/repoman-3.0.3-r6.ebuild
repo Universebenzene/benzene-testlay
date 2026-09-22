@@ -47,7 +47,7 @@ python_prepare_all() {
 	eapply -p2 "${patches[@]}"
 	eapply "${FILESDIR}/${P}-fix-portage-3.0.65.patch"
 	eapply "${FILESDIR}/${P}-fix-portage-3.0.67.patch"
-	eapply "${FILESDIR}/${P}-fix-portage-3.0.82.patch"
+	eapply "${FILESDIR}/${P}-fix-portage-3.0.82.2.patch"
 
 	distutils-r1_python_prepare_all
 }

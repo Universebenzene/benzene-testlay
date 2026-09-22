@@ -1,7 +1,7 @@
 Powered by GPT 5.6 Sol
 ======================
---- a/lib/repoman/argparser.py	2026-09-20 19:24:49.090306337 +0800
-+++ b/lib/repoman/argparser.py	2026-09-20 19:31:21.043366304 +0800
+--- a/lib/repoman/argparser.py	2026-09-22 18:30:12.499922161 +0800
++++ b/lib/repoman/argparser.py	2026-09-22 18:31:02.675367776 +0800
 @@ -22,7 +22,7 @@
  		(opts, args), just like a call to parser.parse_args()
  	"""
@@ -12,7 +12,7 @@ Powered by GPT 5.6 Sol
  	modes = {
  		'commit': 'Run a scan then commit changes',
 --- a/lib/repoman/copyrights.py	2021-03-28 10:23:28.088698000 +0800
-+++ b/lib/repoman/copyrights.py	2026-09-20 19:26:21.013351385 +0800
++++ b/lib/repoman/copyrights.py	2026-09-22 18:31:02.675780061 +0800
 @@ -10,7 +10,7 @@
  from portage import _unicode_decode
  from portage import _unicode_encode
@@ -23,7 +23,7 @@ Powered by GPT 5.6 Sol
  
  
 --- a/lib/repoman/modules/scan/depend/profile.py	2021-03-28 10:23:28.090697800 +0800
-+++ b/lib/repoman/modules/scan/depend/profile.py	2026-09-20 19:32:32.042274067 +0800
++++ b/lib/repoman/modules/scan/depend/profile.py	2026-09-22 18:34:08.415268714 +0800
 @@ -14,7 +14,9 @@
  from repoman.modules.scan.scanbase import ScanBase
  from repoman.modules.scan.depend._depend_checks import _depend_checks
@@ -125,6 +125,15 @@ Powered by GPT 5.6 Sol
  
  class ProfileDependsChecks(ScanBase):
  	'''Perform dependency checks for the different profiles'''
+@@ -140,7 +225,7 @@
+ 			for mytype, atoms in type_map.items():
+ 				self.qatracker.add_error(
+ 					"dependency.unknown", "%s: %s: %s"
+-					% (ebuild.relative_path, mytype, ", ".join(sorted(atoms))))
++					% (ebuild.relative_path, mytype, ", ".join(sorted(map(str, atoms)))))
+ 
+ 	async def _task(self, task):
+ 		await task.future
 @@ -259,9 +344,13 @@
  					if not myvalue:
  						continue
@@ -143,7 +152,7 @@ Powered by GPT 5.6 Sol
  					results.append(types.SimpleNamespace(atoms=atoms, success=success, mykey=mykey, mytype=mytype))
  
 --- a/lib/repoman/tests/changelog/test_echangelog.py	2021-03-28 10:23:28.093697800 +0800
-+++ b/lib/repoman/tests/changelog/test_echangelog.py	2026-09-20 19:26:37.727217786 +0800
++++ b/lib/repoman/tests/changelog/test_echangelog.py	2026-09-22 18:31:02.676581922 +0800
 @@ -5,7 +5,7 @@
  import time
  
@@ -153,8 +162,8 @@ Powered by GPT 5.6 Sol
  from portage.tests import TestCase
  from repoman.utilities import UpdateChangeLog
  
---- a/lib/repoman/utilities.py	2026-09-20 19:24:49.091327939 +0800
-+++ b/lib/repoman/utilities.py	2026-09-20 19:26:02.677071305 +0800
+--- a/lib/repoman/utilities.py	2026-09-22 18:30:12.500840008 +0800
++++ b/lib/repoman/utilities.py	2026-09-22 18:31:02.676850923 +0800
 @@ -32,7 +32,7 @@
  from repoman._portage import portage
  

@@ -16,7 +16,7 @@ app-i18n/fcitx-chinese-addon | 5.1.0-r1; 5.1.1; 5.1.2; (live)                   
 app-i18n/fcitx-table-extra   | 0.3.8-r1; 5.0.13; 5.1.4; 5.1.5 ; 5.1.12; 5.1.13       | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-table-other   | 5.0.11; 5.1.0                                         | Change icon name to install along with slot 4 (need more testing)
 app-i18n/fcitx-mozc:4        | 2.28.5029.102                                         | fcitx:4 support for mozc, as new version in main tree can't compile with fcitx:4 by bazel
-app-portage/repoman          | 3.0.3-r5                                              | Dropped by official portage
+app-portage/repoman          | 3.0.3-r6                                              | Dropped by official portage
 app-text/ydcv                | 0.7                                                   | Need the [HomeAssistantRepository](https://git.edevau.net/onkelbeh/HomeAssistantRepository) overlay if you enable `pkg-info` use. Some other issues [here](https://forums.gentoo.org/viewtopic-p-8352006.html)
 media-video/gnome-mplayer    | 1.0.9-r1                                              | Dropped by official portage
 media-gfx/gpaint             | 0.3.3                                                 | With patches from Debian
